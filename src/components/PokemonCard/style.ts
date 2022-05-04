@@ -40,6 +40,7 @@ export const PokeInfo = styled.div`
 
   .type {
     padding: 0.4rem;
+    margin: 4px;
     border-radius: 0.4rem;
     text-transform: uppercase;
     font-size: 0.8rem;

@@ -4,10 +4,10 @@ interface IPokemonCard {
   id?: number;
   name: string;
   image: string;
-  type: string
+  types: string[]
 }
 
-export default function PokemonCard({id, name, image, type} : IPokemonCard) {
+export default function PokemonCard({id, name, image, types} : IPokemonCard) {
   return (
     <S.Card>
       <img src={image} alt={name} />
@@ -15,7 +15,9 @@ export default function PokemonCard({id, name, image, type} : IPokemonCard) {
       <S.PokeInfo>
         <S.PokeNumber>Nº {id}</S.PokeNumber>
         <S.PokeName>{name}</S.PokeName>
-        <small className={`${type} type`}>{type}</small>
+        {types.map((type) => 
+          <small key={type} className={`${type} type`}>{type}</small>
+        )}
       </S.PokeInfo>
     </S.Card>
   )

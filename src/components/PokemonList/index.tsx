@@ -13,7 +13,7 @@ export default function PokemonList() {
             key={pokemon.id}
             id={pokemon.id}
             name={pokemon.name}
-            type={pokemon.types[0].type.name}
+            types={pokemon.types}
             image={pokemon.sprites.other.dream_world.front_default}
           />
         ))}
