@@ -13,7 +13,7 @@ export default function PokemonCard({id, name, image, type} : IPokemonCard) {
       <img src={image} alt={name} />
 
       <S.PokeInfo>
-        <S.PokeNumber>{id}</S.PokeNumber>
+        <S.PokeNumber>Nº {id}</S.PokeNumber>
         <S.PokeName>{name}</S.PokeName>
         <small className={`${type} type`}>{type}</small>
       </S.PokeInfo>

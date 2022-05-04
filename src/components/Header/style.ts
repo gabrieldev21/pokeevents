@@ -5,12 +5,18 @@ export const Container = styled.div`
 
     display: flex ;
     align-items: center ;
-    justify-content: center;
     flex-direction: column;
-
+    
     img {
         width: 20rem;
         height: 4rem;
         margin: 1rem 0;
     } 
+    `;
+
+export const Wrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    padding: 0 24px;
 `;

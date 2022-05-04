@@ -14,37 +14,92 @@ export const Card = styled.div`
   text-align: center;
 
   img {
-  position: absolute;
-  top: -1.6rem;
-  width: 3rem;
-  height: 3rem;
+    position: absolute;
+    top: -1.6rem;
+    width: 3rem;
+    height: 3rem;
   }
-`
+`;
 
 export const PokeName = styled.div`
-  margin: 15px 0 7px;
-  letter-spacing: 1px;
-`
+  margin: 0.8rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-weight: 800;
+`;
 
 export const PokeNumber = styled.div`
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  font-size: 0.8em;
-  padding: 5px 10px;
-`
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: #a8a8b3;
+  font-weight: bold;
+`;
 
 export const PokeInfo = styled.div`
-  margin-top: 10px;
+  margin-top: 1rem;
 
   .type {
-    padding: 0.3rem;
-    border-radius: 0.2rem;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
     text-transform: uppercase;
-    font-size: 0.5rem;
-    color: #363f5f;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #29292e;
+  }
+
+  .fire {
+    background-color: #fddfdf;
   }
 
   .grass {
-    background-color: orange;
+    background-color: #defde0;
   }
-`
+
+  .electric {
+    background-color: #fcf7de;
+  }
+
+  .water {
+    background-color: #def3fd;
+  }
+
+  .rock {
+    background-color: #d5d5d4;
+  }
+
+  .fairy {
+    background-color: #fceaff;
+  }
+
+  .poison {
+    background-color: #98d7a5;
+  }
+
+  .bug {
+    background-color: #f8d5a3;
+  }
+
+  .dragon {
+    background-color: #97b3e6;
+  }
+
+  .psychic {
+    background-color: #eaeda1;
+  }
+
+  .flying {
+    background-color: #f5f5f5;
+  }
+
+  .fighting {
+    background-color: #e6e0d4;
+  }
+
+  .ice {
+    background-color: #97b3e6;
+  }
+
+  .normal {
+    background-color: #f5f5f5;
+  }
+`;
