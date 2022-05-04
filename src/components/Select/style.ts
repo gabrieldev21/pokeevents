@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
     max-width: 1.6rem;
     max-height: 1.65rem;
     opacity: 0.3;
-    margin-right: 0.2rem;
+    margin-right: 0.4rem;
   }
 `;
 

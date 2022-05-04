@@ -15,9 +15,9 @@ export const Card = styled.div`
 
   img {
     position: absolute;
-    top: -1.6rem;
-    width: 3rem;
-    height: 3rem;
+    top: -1.7rem;
+    width: 3.6rem;
+    height: 3.6rem;
   }
 `;
 
@@ -89,7 +89,7 @@ export const PokeInfo = styled.div`
   }
 
   .flying {
-    background-color: #f5f5f5;
+    background-color: #d5d5d4;
   }
 
   .fighting {
