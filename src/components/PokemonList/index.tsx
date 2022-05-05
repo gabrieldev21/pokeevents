@@ -4,19 +4,14 @@ import { usePokemons } from "../../context/PokemonContext";
 import * as S from "./style";
 
 export default function PokemonList() {
-  const { pokemons } = usePokemons();
+  const { pokemons, hasMore } = usePokemons();
 
-    return (
-    <>
+  return (
       <S.PokemonList>
         {pokemons.map((pokemon) => (
-          <PokemonCard 
-            key={pokemon.id}
-            {...pokemon}
-          />
+          <PokemonCard key={pokemon.id} {...pokemon} />
         ))}
+        {hasMore && <p id="ward">LOADING...</p>}
       </S.PokemonList>
-      <div id="ward">loading...</div>
-    </> 
   );
 }

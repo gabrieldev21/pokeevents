@@ -1,3 +1,5 @@
+import { useCallback, useEffect, useState } from "react";
+import { api } from "../../service/api";
 import PokemonTypes from "../PokemonTypes";
 import Portal from "../Portal";
 
@@ -5,22 +7,28 @@ import { Pokemon } from "../types";
 import * as S from "./style";
 
 interface PokemonModalProps {
-  isOpen?: boolean;
   handleClose: () => void;
   pokemon: Pokemon;
 }
 
 export default function PokemonModal({
-  isOpen,
   handleClose,
   pokemon,
 }: PokemonModalProps) {
-  if (!isOpen) {
-    return null;
-  }
+
+  const [flavor, setFlavor] = useState(""); 
+
+  const fetchFlavors = useCallback( async () => {
+     const { data } = await api.get(pokemon.species.url);
+     setFlavor(data.flavor_text_entries[0].flavor_text);
+  }, [ pokemon, setFlavor ])
+
+  useEffect(() => {
+    fetchFlavors();
+  },[ fetchFlavors ])
 
   return (
-    <Portal>
+    <Portal onClick={handleClose}>
       <S.PokePaper>
         <S.CloseButton onClick={handleClose}>X</S.CloseButton>
           <S.PokerDescription>
@@ -30,9 +38,9 @@ export default function PokemonModal({
             />
             <S.PokerModalNumber>#{pokemon.id}</S.PokerModalNumber>
             <S.PokerModalName>{pokemon.name}</S.PokerModalName>
-            <PokemonTypes pokemon={pokemon} />
+            <PokemonTypes types={pokemon.types} />
             <span>POKÉDEX ENTRY</span>  
-            <S.PokerModalAttributes>{pokemon.types}</S.PokerModalAttributes>
+            <S.PokerModalFlavor>{flavor}</S.PokerModalFlavor>
           </S.PokerDescription>
 
       </S.PokePaper>

@@ -12,7 +12,6 @@ import { api } from "../service/api";
 import { IPokemonApi, Pokemon } from "../components/types";
 import { IPokemonContext, PokemonProviderProps } from "./types";
 
-
 const defaultValue = {
   pokemons: [],
   searchPokemon: "",
@@ -20,16 +19,18 @@ const defaultValue = {
   types: [],
   typeSelected: "",
   setTypeSelected: () => {},
+  hasMore: true,
 };
 
 const PokemonContext = createContext<IPokemonContext>(defaultValue);
 
 export function PokemonProvider({ children }: PokemonProviderProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [next, setNext] = useState("pokemon?limit=20");
+  const [next, setNext] = useState<string | null>("pokemon?limit=20");
   const [searchPokemon, setSearchPokemon] = useState("");
   const [types, setTypes] = useState<string[]>([]);
   const [typeSelected, setTypeSelected] = useState("");
+  const [hasMore, setHasMore] = useState(true);
 
   const list = useMemo(
     () =>
@@ -47,6 +48,12 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
 
   const loadMorePokemons = useCallback(
     async (url: string) => {
+      let isFinished = false;
+
+      if (url.includes("offset=140")) {
+        isFinished = true;
+      } 
+
       const { data } = await api.get(url);
       const listRequest = data.results.map(
         async (urlPokemon: { url: string }) => {
@@ -59,20 +66,31 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
         ...pokemon,
         types: pokemon.types.flatMap(type => type.type.name)
       }))
-      setPokemons(pokemons.concat(pokemonsResponse));
-      setNext(data.next);
+      
+      if (isFinished) {
+        setPokemons(pokemons.concat(pokemonsResponse.slice(0,11)))
+        setNext(null);
+        setHasMore(false);
+      } else {
+        setPokemons(pokemons.concat(pokemonsResponse));
+        setNext(data.next);
+      }
     },
     [pokemons]
   );
 
+  
+
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver((entries) => {
-      if (entries.some((entry) => entry.isIntersecting)) {
+      if (next && entries.some((entry) => entry.isIntersecting)) {
         loadMorePokemons(next);
       }
     });
-    const ward = document.getElementById("ward") as Element;
-    intersectionObserver.observe(ward);
+    const ward = document.getElementById("ward");
+    if (ward) {
+      intersectionObserver.observe(ward);
+    }
     return () => intersectionObserver.disconnect();
   }, [next, loadMorePokemons]);
 
@@ -89,6 +107,7 @@ export function PokemonProvider({ children }: PokemonProviderProps) {
         types,
         typeSelected,
         setTypeSelected,
+        hasMore
       }}
     >
       {children}

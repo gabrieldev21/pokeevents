@@ -26,7 +26,12 @@ html {
 body {
         background: ${({ theme }) => theme.colors.graytheme};
         -webkit-font-smoothing:antialiased;
-        overflow-x: hidden;
+        overflow: hidden;
+    }
+
+    #root {
+        overflow: auto;
+        max-height: 100vh;
     }
 
 body,input,textarea,button {

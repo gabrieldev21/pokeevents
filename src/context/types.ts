@@ -12,5 +12,6 @@ export interface IPokemonContext {
   setSearchPokemon: (search: string) => void;
   types: string[];
   typeSelected: string;
+  hasMore: boolean;
   setTypeSelected: (type: string) => void;
 }

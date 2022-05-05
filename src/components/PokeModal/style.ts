@@ -52,6 +52,7 @@ export const PokerModalName = styled.h1`
   text-transform: capitalize;
 `
 
-export const PokerModalAttributes = styled.div`
+export const PokerModalFlavor = styled.div`
+  text-align: center;
   font-size: 1.2rem;
 `

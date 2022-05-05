@@ -9,7 +9,7 @@ import * as S from "./style";
 export default function PokemonCard(props: Pokemon) {
   const [isPokemonModalOpen, setIsPokemonModalOpen] = useState(false);
 
-  const { id, name, sprites } = props;
+  const { id, name, sprites, types } = props;
 
   return (
     <>
@@ -19,14 +19,13 @@ export default function PokemonCard(props: Pokemon) {
         <S.PokeInfo>
           <S.PokeNumber>Nº {id}</S.PokeNumber>
           <S.PokeName>{name}</S.PokeName>
-          <PokemonTypes pokemon={props} />
+          <PokemonTypes types={types} />
         </S.PokeInfo>
       </S.Card>
-      <PokemonModal
-        isOpen={isPokemonModalOpen}
+      { isPokemonModalOpen && <PokemonModal
         handleClose={() => setIsPokemonModalOpen(false)}
         pokemon={props}
-      />
+      /> }
     </>
   );
 }

@@ -1,11 +1,11 @@
 import { IPokemonTypes } from './types'
 import * as S from "./style"
 
-export default function PokemonTypes({ pokemon }: IPokemonTypes) {
+export default function PokemonTypes({ types }: IPokemonTypes) {
   
   return (
     <S.ContainerType>
-     {pokemon.types.map((type) => (
+     {types.map((type) => (
       <small key={type} className={`${type} type`}>
          {type}
        </small>
