@@ -4,7 +4,6 @@ export interface Pokemon {
   sprites: Sprites;
   types: string[];
   species: { name: string; url: string };
-  flavor_text_entries?: FlavorTextEntriesEntity[];
 }
 
 export interface ModalPokemonProps {
@@ -12,11 +11,6 @@ export interface ModalPokemonProps {
   name: string;
   sprites: Sprites;
   types: string[];
-  flavor_text_entries?: FlavorTextEntriesEntity;
-}
-
-export interface FlavorTextEntriesEntity {
-  flavor_text: string;
 }
 export interface IPokemonApi {
   types: TypesEntity[];

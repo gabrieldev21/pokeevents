@@ -28,7 +28,7 @@ export default function PokemonModal({
   },[ fetchFlavors ])
 
   return (
-    <Portal onClick={handleClose}>
+    <Portal>
       <S.PokePaper>
         <S.CloseButton onClick={handleClose}>X</S.CloseButton>
           <S.PokerDescription>
