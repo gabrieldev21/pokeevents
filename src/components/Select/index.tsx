@@ -1,4 +1,5 @@
 import TypeIcon from "../../assets/images/select.png";
+
 import { usePokemons } from "../../context/PokemonContext";
 
 import * as S from "./style";

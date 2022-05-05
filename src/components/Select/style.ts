@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   flex: 1;
   min-width: 150px;
   height: 4rem;
-  background: var(--white);
-  border: 1px solid #d3e2e5;
+  background: ${({ theme }) => theme.colors.white};
+  border: 1px solid ${({ theme }) => theme.colors.lightgray};
   border-radius: 1.2rem;
   margin: 16px;
   padding: 0 16px;
@@ -22,9 +22,12 @@ export const Wrapper = styled.div`
 
 
 export const SelectType = styled.select`
-  background: var(--white);
+  color: ${({ theme }) => theme.colors.darkgray};
   width: 100%;
   border: none;
-  color: var(--text-body);
   outline: none;
+
+  option {
+    text-transform: capitalize;
+  }
 `;

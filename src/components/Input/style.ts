@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   min-width: 250px;
   flex: 8;
   height: 4rem;
-  background: var(--white);
-  border: 1px solid #d3e2e5;
+  background: ${({ theme }) => theme.colors.white};
+  border: 0.5px solid ${({ theme }) => theme.colors.lightgray};
   border-radius: 1.2rem;
   padding: 0 16px;
   margin: 16px;
@@ -21,10 +21,13 @@ export const Wrapper = styled.div`
 
 
 export const Input = styled.input`
-  background: var(--white);
   width: 100%;
   border: none;
-  color: var(--text-title);
+  color: ${({ theme }) => theme.colors.almostblack};
   outline: none;
   margin-left: 1.2rem;
+
+  ::placeholder {
+    color: ${({ theme }) => theme.colors.darkgray};
+  }
 `;

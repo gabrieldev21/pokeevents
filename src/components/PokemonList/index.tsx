@@ -1,6 +1,7 @@
 import PokemonCard from "../PokemonCard";
-import * as S from "./style";
 import { usePokemons } from "../../context/PokemonContext";
+
+import * as S from "./style";
 
 export default function PokemonList() {
   const { pokemons } = usePokemons();
@@ -11,10 +12,7 @@ export default function PokemonList() {
         {pokemons.map((pokemon) => (
           <PokemonCard 
             key={pokemon.id}
-            id={pokemon.id}
-            name={pokemon.name}
-            types={pokemon.types}
-            image={pokemon.sprites.other.dream_world.front_default}
+            {...pokemon}
           />
         ))}
       </S.PokemonList>

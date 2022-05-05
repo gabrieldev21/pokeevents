@@ -12,7 +12,7 @@ export default function Input() {
         <S.Input
           value={searchPokemon}
           onChange={(event) => setSearchPokemon(event.target.value)}
-          placeholder="Search your Pokemon!" />
+          placeholder="Search your Pokémon!" />
         <img src={SearchIcon} alt="search button"/>
         
       </S.Wrapper>

@@ -25,8 +25,6 @@ interface Sprites {
   other: Other;
 }
 
-
-
 export interface TypesEntity {
   type: TypeSpecie;
 }
@@ -35,3 +33,4 @@ interface TypeSpecie {
   name: string;
   url: string;
 }
+

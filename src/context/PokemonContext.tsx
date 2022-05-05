@@ -1,27 +1,17 @@
 import {
   createContext,
-  ReactNode,
   useCallback,
   useContext,
   useEffect,
   useMemo,
   useState,
 } from "react";
-import { IPokemonApi, Pokemon } from "../components/types";
+
 import { api } from "../service/api";
 
-interface PokemonProviderProps {
-  children: ReactNode;
-}
+import { IPokemonApi, Pokemon } from "../components/types";
+import { IPokemonContext, PokemonProviderProps } from "./types";
 
-interface IPokemonContext {
-  pokemons: Pokemon[];
-  searchPokemon: string;
-  setSearchPokemon: (search: string) => void;
-  types: string[];
-  typeSelected: string;
-  setTypeSelected: (type: string) => void;
-}
 
 const defaultValue = {
   pokemons: [],
